@@ -23,9 +23,10 @@ public class Book {
 	}
 
 	/**
-	 * @param title
-	 * @param year
-	 * @param author
+	 * @param title    the book's title
+	 * @param year     the book's release year
+	 * @param author   the bookf's author
+	 * @param quantity the quantity available in stock
 	 */
 	public Book(String title, int year, Author author, int quantity) {
 		super();

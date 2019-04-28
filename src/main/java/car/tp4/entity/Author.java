@@ -30,8 +30,8 @@ public class Author {
 	}
 
 	/**
-	 * @param lastname
-	 * @param firstname
+	 * @param lastname  the last name of the author
+	 * @param firstname the first name of the author
 	 */
 	public Author(String lastname, String firstname) {
 		super();

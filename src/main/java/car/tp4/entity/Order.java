@@ -61,7 +61,7 @@ public class Order {
 	/**
 	 * Adds the specified order line to the line collection of the current order
 	 * 
-	 * @param line
+	 * @param line the line to add
 	 */
 	public void addLine(OrderLine line) {
 		if (this.lines.contains(line)) {

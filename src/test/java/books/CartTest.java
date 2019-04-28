@@ -197,7 +197,7 @@ public class CartTest {
 
 	@Test
 	public void testConfirmOrderEmpty() {
-		assertNull(this.cart.getCart());
+		assertNull(this.cart.confirmOrder("lol"));
 	}
 
 	@Test
@@ -222,5 +222,29 @@ public class CartTest {
 
 		Order order = this.cart.confirmOrder("Lol");
 		assertEquals("Lol", order.getOwner());
+	}
+
+	@Test
+	public void testConfirmOrderItemRemoved() {
+		// Ads one item then removes it
+		Author zemmour = new Author("Zemmour", "Eric");
+		Book zem = new Book("Le suicide français", 2012, zemmour, 15);
+		Mockito.when(this.bookBean.findById(1)).thenReturn(zem);
+		this.cart.addItem(1, 3);
+		Mockito.when(this.bookBean.findById(1)).thenReturn(null);
+
+		assertNull(this.cart.confirmOrder("Lol"));
+	}
+
+	@Test
+	public void testConfirmOrderItemLessQuantity() {
+		// Ads one item then lowers the quantity available
+		Author zemmour = new Author("Zemmour", "Eric");
+		Book zem = new Book("Le suicide français", 2012, zemmour, 15);
+		Mockito.when(this.bookBean.findById(1)).thenReturn(zem);
+		this.cart.addItem(1, 3);
+		zem.setQuantity(1);
+
+		assertNull(this.cart.confirmOrder("Lol"));
 	}
 }

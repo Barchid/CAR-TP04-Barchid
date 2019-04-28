@@ -107,6 +107,16 @@
           <artifactId>openjpa-maven-plugin</artifactId>
           <version>${version.openjpa}</version>
         </plugin>
+        <plugin>
+		<groupId>org.apache.maven.plugins</groupId>
+		<artifactId>maven-javadoc-plugin</artifactId>
+		<version>2.10.4</version>
+		<configuration>
+			<reportOutputDirectory>${project.build.directory}/docs</reportOutputDirectory>
+			<destDir>docs</destDir>
+			<nohelp>true</nohelp>
+		</configuration>
+		</plugin>
       </plugins>
     </pluginManagement>
 

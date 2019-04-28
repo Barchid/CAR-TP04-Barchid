@@ -109,6 +109,7 @@ public class BookManager {
 	 * @param title    the title of the book
 	 * @param year     the release year of the book
 	 * @param authorId the id of the related author
+	 * @param quantity the quantity of books available
 	 * @return boolean true if the book has been correctly created/updated or else
 	 *         false
 	 */
