@@ -97,6 +97,10 @@ public class Cart {
 		Map<Book, Integer> cart = new HashMap<Book, Integer>();
 		for (Entry<Integer, Integer> entry : this.items.entrySet()) {
 			Book book = this.bookBean.findById(entry.getKey());
+			if (book == null) {
+				continue;
+			}
+
 			cart.put(book, entry.getValue());
 		}
 
@@ -119,6 +123,9 @@ public class Cart {
 		List<OrderLine> orderLines = new ArrayList<OrderLine>();
 		for (Entry<Integer, Integer> entry : this.items.entrySet()) {
 			Book book = this.bookBean.findById(entry.getKey());
+			if (book == null) {
+				return null;
+			}
 			if (book.getQuantity() < entry.getValue()) {
 				return null;
 			}
@@ -134,5 +141,47 @@ public class Cart {
 
 	@Remove
 	private void end() {
+	}
+
+	/**
+	 * @return the bookBean
+	 */
+	public BookBean getBookBean() {
+		return bookBean;
+	}
+
+	/**
+	 * @param bookBean the bookBean to set
+	 */
+	public void setBookBean(BookBean bookBean) {
+		this.bookBean = bookBean;
+	}
+
+	/**
+	 * @return the orderBean
+	 */
+	public OrderBean getOrderBean() {
+		return orderBean;
+	}
+
+	/**
+	 * @param orderBean the orderBean to set
+	 */
+	public void setOrderBean(OrderBean orderBean) {
+		this.orderBean = orderBean;
+	}
+
+	/**
+	 * @return the orderLineBean
+	 */
+	public OrderLineBean getOrderLineBean() {
+		return orderLineBean;
+	}
+
+	/**
+	 * @param orderLineBean the orderLineBean to set
+	 */
+	public void setOrderLineBean(OrderLineBean orderLineBean) {
+		this.orderLineBean = orderLineBean;
 	}
 }

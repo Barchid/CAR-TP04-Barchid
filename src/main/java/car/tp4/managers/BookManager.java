@@ -1,3 +1,4 @@
+
 package car.tp4.managers;
 
 import java.util.Iterator;
@@ -113,7 +114,7 @@ public class BookManager {
 	 */
 	public boolean createOrUpdateBook(int id, String title, int year, int authorId, int quantity) {
 		Author author = this.authorBean.findById(authorId);
-		if (author == null || title.trim().equals("") || year < 0) {
+		if (author == null || title.trim().equals("") || year < 0 || quantity < 0) {
 			return false;
 		}
 
@@ -138,5 +139,33 @@ public class BookManager {
 		}
 
 		return true;
+	}
+
+	/**
+	 * @return the bookBean
+	 */
+	public BookBean getBookBean() {
+		return bookBean;
+	}
+
+	/**
+	 * @param bookBean the bookBean to set
+	 */
+	public void setBookBean(BookBean bookBean) {
+		this.bookBean = bookBean;
+	}
+
+	/**
+	 * @return the authorBean
+	 */
+	public AuthorBean getAuthorBean() {
+		return authorBean;
+	}
+
+	/**
+	 * @param authorBean the authorBean to set
+	 */
+	public void setAuthorBean(AuthorBean authorBean) {
+		this.authorBean = authorBean;
 	}
 }
