@@ -51,7 +51,7 @@
 								<%= entry.getValue() %>
 							</td>
 							<td>
-								<a class="btn btn-danger" href="/cart-remove">
+								<a class="btn btn-danger" href="/cart-remove?id=<%=entry.getKey().getId()%>&quantity=<%=entry.getValue()%>">
 									Remove
 								</a>
 							</td>

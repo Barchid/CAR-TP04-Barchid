@@ -76,9 +76,9 @@
 									View
 								</a>
 								
-								<a class="btn btn-danger" href="/book-remove?id=<%=book.getId()%>">
-									Remove
-								</a>
+<%-- 								<a class="btn btn-danger" href="/book-remove?id=<%=book.getId()%>"> --%>
+<!-- 									Remove -->
+<!-- 								</a> -->
 							</td>
 						</tr>
 						<%}%>
